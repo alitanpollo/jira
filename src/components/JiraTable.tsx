@@ -193,7 +193,17 @@ export const JiraTable: React.FC = () => {
               <tr key={item.ID_Jira} className="hover:bg-gray-50">
                 <td className="table-cell">{item.ID_Jira}</td>
                 <td className="table-cell">{item.Actividades}</td>
-                <td className="table-cell">{item.Estado_Jira}</td>
+                <td className="table-cell">
+                  <select
+                    value={item.Estado_Jira}
+                    onChange={(e) => handleInputChange(item.ID_Jira, 'Estado_Jira', e.target.value)}
+                    className="input w-full"
+                  >
+                    <option value="TO DO">TO DO</option>
+                    <option value="IN PROGRESS">IN PROGRESS</option>
+                    <option value="DONE">DONE</option>
+                  </select>
+                </td>
                 <td className="table-cell">
                   <input
                     type="text"
